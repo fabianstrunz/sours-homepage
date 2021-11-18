@@ -5,8 +5,16 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import Header from '../components/header/header'
+import { useMediaQuery, useTheme } from '@mui/material'
+import IndexMobile from '../components/index/indexMobile'
+import Index from '../components/index'
 
 const Home: NextPage = () => {
+    const theme = useTheme()
+
+    const isMobile: boolean = useMediaQuery(theme.breakpoints.down("md"))
+    const isDesktop: boolean = useMediaQuery(theme.breakpoints.up("md"))
+
     return (
         <>
             <Head>
@@ -15,17 +23,12 @@ const Home: NextPage = () => {
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
 
-            <header>
-                <Header/>
-            </header>
-
-            <main>
-
-            </main>
-
-            <footer>
-
-            </footer>
+            {
+                isMobile && !isDesktop ?
+                    <IndexMobile />
+                    :
+                    <Index />
+            }
         </>
     )
 }
