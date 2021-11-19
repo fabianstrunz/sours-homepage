@@ -1,5 +1,5 @@
-import { AppBar, Box, Toolbar, Typography } from '@mui/material'
-import Link from 'next/link'
+import { AppBar, Box, Toolbar } from '@mui/material'
+import { ContactLink, HomeLink, MenuLink, NewsLink, ReservationLink } from '../links/links'
 
 const HeaderDesktop = (): JSX.Element => {
     return (
@@ -7,64 +7,19 @@ const HeaderDesktop = (): JSX.Element => {
             <AppBar position="static">
                 <Toolbar>
                     <Box sx={{ flexGrow: 1 }}>
-                        <Link href="/" passHref>
-                            <Typography
-                                variant="h6"
-                                component="a"
-                                color="secondary"
-                                sx={{ textDecoration: "none", "&:hover": { textDecoration: "underline" } }}
-                            >
-                                Startseite
-                            </Typography>
-                        </Link>
+                        <HomeLink />
                     </Box>
                     <Box sx={{ flexGrow: 1 }}>
-                        <Link href="/news" passHref>
-                            <Typography
-                                variant="h6"
-                                component="a"
-                                color="secondary"
-                                sx={{ textDecoration: "none", "&:hover": { textDecoration: "underline" } }}
-                            >
-                                Neuigkeiten
-                            </Typography>
-                        </Link>
+                        <NewsLink />
                     </Box>
                     <Box sx={{ flexGrow: 1 }}>
-                        <Link href="/reservation" passHref>
-                            <Typography
-                                variant="h6"
-                                component="a"
-                                color="secondary"
-                                sx={{ textDecoration: "none", "&:hover": { textDecoration: "underline" } }}
-                            >
-                                Tisch reservieren
-                            </Typography>
-                        </Link>
+                        <ReservationLink />
                     </Box>
                     <Box sx={{ flexGrow: 1 }}>
-                        <Link href="/menu" passHref>
-                            <Typography
-                                variant="h6"
-                                component="a"
-                                color="secondary"
-                                sx={{ textDecoration: "none", "&:hover": { textDecoration: "underline" } }}
-                            >
-                                Speisekarte
-                            </Typography>
-                        </Link>
+                        <MenuLink />
                     </Box>
                     <Box sx={{ flexGrow: 1 }}>
-                        <Link href="/contact" passHref>
-                            <Typography
-                                variant="h6"
-                                component="a"
-                                color="secondary"
-                                sx={{ textDecoration: "none", "&:hover": { textDecoration: "underline" } }}
-                            >
-                                Kontakt
-                            </Typography>
-                        </Link>
+                        <ContactLink />
                     </Box>
                 </Toolbar>
             </AppBar>

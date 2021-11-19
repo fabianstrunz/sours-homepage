@@ -1,16 +1,22 @@
 import {
     AppBar,
-    Box,
+    Box, Breadcrumbs,
     IconButton,
     List, ListItemButton,
-    ListItemText,
     Toolbar, Typography
 } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu';
 import React, { useState } from 'react'
 import Link from 'next/link'
+import { LinkLocation } from './headerEnums'
+import { ContactLink, MenuLink, NewsLink, ReservationLink } from '../links/links'
+import NavigateNextIcon from '@mui/icons-material/NavigateNext'
 
-const HeaderMobile = (): JSX.Element => {
+interface HeaderMobileProps {
+    location: LinkLocation
+}
+
+const HeaderMobile = (props: HeaderMobileProps): JSX.Element => {
     const [isDrawerOpen, setDrawerOpen] = useState<boolean>(false)
 
     const handleDrawerToggle = () => {
@@ -19,6 +25,21 @@ const HeaderMobile = (): JSX.Element => {
 
     const handleDrawerClose = () => {
         setDrawerOpen(false)
+    }
+
+    const renderBreadcrumb = (location: LinkLocation): JSX.Element | null => {
+        switch (location) {
+            case LinkLocation.Contact:
+                return <ContactLink />
+            case LinkLocation.Menu:
+                return <MenuLink />
+            case LinkLocation.News:
+                return <NewsLink />
+            case LinkLocation.Reservation:
+                return <ReservationLink />
+            default:
+                return null
+        }
     }
 
     return (
@@ -31,6 +52,21 @@ const HeaderMobile = (): JSX.Element => {
                     >
                         <MenuIcon color="secondary"/>
                     </IconButton>
+                    <Breadcrumbs aria-label="breadcrumb" separator={<NavigateNextIcon fontSize="small" color="secondary" />}>
+                        <Link href="/" passHref>
+                            <Typography
+                                variant="h6"
+                                component="a"
+                                color="secondary"
+                                sx={{ textDecoration: "none", "&:hover": { textDecoration: "underline" } }}
+                            >
+                                Startseite
+                            </Typography>
+                        </Link>
+                        {
+                            renderBreadcrumb(props.location)
+                        }
+                    </Breadcrumbs>
                 </Toolbar>
             </AppBar>
             {
