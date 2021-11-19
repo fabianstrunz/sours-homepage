@@ -4,10 +4,9 @@ import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
-import Header from '../components/header/header'
 import { useMediaQuery, useTheme } from '@mui/material'
 import IndexMobile from '../components/index/indexMobile'
-import Index from '../components/index'
+import IndexDesktop from '../components/index/indexDesktop'
 
 const Home: NextPage = () => {
     const theme = useTheme()
@@ -27,7 +26,7 @@ const Home: NextPage = () => {
                 isMobile && !isDesktop ?
                     <IndexMobile />
                     :
-                    <Index />
+                    <IndexDesktop />
             }
         </>
     )

@@ -1,7 +1,7 @@
 import { AppBar, Box, Toolbar, Typography } from '@mui/material'
 import Link from 'next/link'
 
-const Header = (): JSX.Element => {
+const HeaderDesktop = (): JSX.Element => {
     return (
         <nav>
             <AppBar position="static">
@@ -28,6 +28,13 @@ const Header = (): JSX.Element => {
                         </Link>
                     </Box>
                     <Box sx={{ flexGrow: 1 }}>
+                        <Link href="/menu" passHref>
+                            <Typography variant="h6" component="a" >
+                                Speisekarte
+                            </Typography>
+                        </Link>
+                    </Box>
+                    <Box sx={{ flexGrow: 1 }}>
                         <Link href="/contact" passHref>
                             <Typography variant="h6" component="a" >
                                 Kontakt
@@ -40,4 +47,4 @@ const Header = (): JSX.Element => {
     )
 }
 
-export default Header
+export default HeaderDesktop

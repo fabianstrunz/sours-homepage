@@ -1,10 +1,10 @@
 import type { NextPage } from 'next'
 import { useMediaQuery, useTheme } from '@mui/material'
-import ContactMobile from '../components/contact/contactMobile'
-import ContactDesktop from '../components/contact/contactDesktop'
+import MenuDesktop from '../components/menu/menuDesktop'
+import MenuMobile from '../components/menu/menuMobile'
 import Head from 'next/head'
 
-const Contact: NextPage = () => {
+const Menu: NextPage = () => {
     const theme = useTheme()
 
     const isMobile: boolean = useMediaQuery(theme.breakpoints.down("md"))
@@ -13,16 +13,15 @@ const Contact: NextPage = () => {
     return (
         <>
             <Head>
-                <title>Sours Homepage - Kontakt</title>
+                <title>Sours Homepage - Speisekarte</title>
             </Head>
             {
                 isMobile && !isDesktop ?
-                    <ContactMobile /> :
-                    <ContactDesktop />
+                    <MenuMobile /> :
+                    <MenuDesktop />
             }
         </>
     )
-
 }
 
-export default Contact
+export default Menu

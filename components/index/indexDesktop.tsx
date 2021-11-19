@@ -1,10 +1,10 @@
-import Header from '../header/header'
+import HeaderDesktop from '../header/headerDesktop'
 
-const Index = (): JSX.Element => {
+const IndexDesktop = (): JSX.Element => {
     return (
         <>
             <header>
-                <Header/>
+                <HeaderDesktop/>
             </header>
 
             <main>
@@ -17,4 +17,4 @@ const Index = (): JSX.Element => {
     )
 }
 
-export default Index
+export default IndexDesktop
