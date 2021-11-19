@@ -1,10 +1,12 @@
-import { AppBar, Box, Toolbar} from '@mui/material'
+import { AppBar, Box, Slide, Toolbar, useScrollTrigger } from '@mui/material'
 import { ContactLink, HomeLink, MenuLink, NewsLink, ReservationLink } from '../links/links'
 
 const HeaderDesktop = (): JSX.Element => {
+    const trigger = useScrollTrigger();
     return (
         <nav>
-            <AppBar position="static">
+            <Slide in={!trigger}>
+            <AppBar>
                 <Toolbar>
                     <Box sx={{ flexGrow: 1 }}>
                         <HomeLink />
@@ -23,6 +25,7 @@ const HeaderDesktop = (): JSX.Element => {
                     </Box>
                 </Toolbar>
             </AppBar>
+            </Slide>
         </nav>
     )
 }

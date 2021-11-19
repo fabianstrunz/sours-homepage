@@ -15,7 +15,7 @@ const MenuDesktop = (): JSX.Element => {
         <>
             <HeaderDesktop />
             <main>
-                <Container>
+                <Container sx={{ marginTop: "64px" }}>
                     <Typography component="h3" variant="h3">Getränke</Typography>
                     <TableContainer>
                         <Table aria-label="simple table">
