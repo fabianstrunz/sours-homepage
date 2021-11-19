@@ -1,4 +1,4 @@
-import { AppBar, Box, Toolbar } from '@mui/material'
+import { AppBar, Box, Toolbar} from '@mui/material'
 import { ContactLink, HomeLink, MenuLink, NewsLink, ReservationLink } from '../links/links'
 
 const HeaderDesktop = (): JSX.Element => {
