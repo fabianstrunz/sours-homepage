@@ -4,7 +4,7 @@ import {
     IconButton,
     List, ListItemButton,
     ListItemText,
-    Toolbar
+    Toolbar, Typography
 } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu';
 import React, { useState } from 'react'
@@ -22,14 +22,14 @@ const HeaderMobile = (): JSX.Element => {
     }
 
     return (
-        <>
+        <nav>
             <AppBar position="static">
                 <Toolbar>
                     <IconButton
                         id="mobile-menu-button"
                         onClick={handleDrawerToggle}
                     >
-                        <MenuIcon />
+                        <MenuIcon color="secondary"/>
                     </IconButton>
                 </Toolbar>
             </AppBar>
@@ -39,27 +39,27 @@ const HeaderMobile = (): JSX.Element => {
                         <List>
                             <Link href="/">
                                 <ListItemButton>
-                                    <ListItemText primary="Startseite"/>
+                                    <Typography variant="h6" component="div" color="secondary">Startseite</Typography>
                                 </ListItemButton>
                             </Link>
                             <Link href="/news">
                                 <ListItemButton>
-                                    <ListItemText primary="News"/>
+                                    <Typography component="div" color="secondary">News</Typography>
                                 </ListItemButton>
                             </Link>
                             <Link href="/reservation">
                                 <ListItemButton>
-                                    <ListItemText primary="Tisch reservieren"/>
+                                    <Typography component="div" color="secondary">Tisch reservieren</Typography>
                                 </ListItemButton>
                             </Link>
                             <Link href="/menu">
                                 <ListItemButton>
-                                    <ListItemText primary="Speisekarte"/>
+                                    <Typography component="div" color="secondary">Speisekarte</Typography>
                                 </ListItemButton>
                             </Link>
                             <Link href="/contact">
                                 <ListItemButton>
-                                    <ListItemText primary="Kontakt"/>
+                                    <Typography component="div" color="secondary">Kontakt</Typography>
                                 </ListItemButton>
                             </Link>
                         </List>
@@ -67,7 +67,7 @@ const HeaderMobile = (): JSX.Element => {
                     :
                     <></>
             }
-        </>
+        </nav>
     )
 }
 

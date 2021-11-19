@@ -3,9 +3,7 @@ import HeaderDesktop from '../header/headerDesktop'
 const IndexDesktop = (): JSX.Element => {
     return (
         <>
-            <header>
-                <HeaderDesktop/>
-            </header>
+            <HeaderDesktop/>
 
             <main>
             </main>

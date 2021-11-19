@@ -3,9 +3,7 @@ import HeaderMobile from '../header/headerMobile'
 const NewsMobile = (): JSX.Element => {
     return (
         <>
-            <header>
-                <HeaderMobile />
-            </header>
+            <HeaderMobile />
             <main></main>
             <footer></footer>
         </>
