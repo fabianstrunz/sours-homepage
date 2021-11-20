@@ -3,6 +3,7 @@ import { Box, Button, Container, TextField, Typography } from '@mui/material'
 import React, { useState } from 'react'
 import validator from 'validator'
 import axios from 'axios'
+import { sendRenderResult } from 'next/dist/server/send-payload'
 
 const ContactDesktop = (): JSX.Element => {
     const [email, setEmail] = useState<string>("")
@@ -19,8 +20,14 @@ const ContactDesktop = (): JSX.Element => {
     }
 
     const sendEmail = () => {
-        axios.post("/api/contacts", {
-
+        axios.post("/api/contact", {
+            email: email,
+            subject: subject,
+            text: text
+        }).then(value => {
+            console.log(value)
+        }).catch(reason => {
+            console.log(reason)
         })
     }
 

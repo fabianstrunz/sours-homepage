@@ -1,9 +1,17 @@
-import { IncomingMessage, ServerResponse } from 'http'
 import nodemailer from 'nodemailer'
+import { MailOptions } from 'nodemailer/lib/sendmail-transport'
 
-export default function (req: IncomingMessage, resp: ServerResponse) {
-    console.log(req)
-    /*
+interface RBody {
+    email: string,
+    subject: string,
+    text: string
+}
+
+export default function (req: any, resp: any) {
+    const rbody: RBody = req.body
+    const mailserver: string|undefined = process.env.MAIL_SERVER
+    const mailuser: string|undefined = process.env.MAIL_USER
+    const mailpassword: string|undefined = process.env.MAIL_PASSWORD
     const transport = nodemailer.createTransport({
         host: "smtp.web.de",
         port: 587,
@@ -11,16 +19,23 @@ export default function (req: IncomingMessage, resp: ServerResponse) {
         requireTLS: true,
         auth: {
             user: "fabian_strunz",
-            pass: "2018Email01$$"
+            pass: "easypass"
         }
     })
-    transport.verify(function (error, success) {
-        if (error) {
-            console.log(error);
-        } else {
-            console.log("Server is ready to take our messages");
-        }
-    })
+    const mail: MailOptions = {
+        from: "fabian_strunz@web.de",
+        to: rbody.email,
+        subject: rbody.subject,
+        text: rbody.text
+    }
 
-     */
+    transport.sendMail(mail, ((err, info) => {
+        if (err) {
+            console.log(err)
+        } else {
+            console.log(info)
+        }
+    }))
+
+    resp.status(200).end()
 }
