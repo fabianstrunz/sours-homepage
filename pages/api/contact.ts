@@ -13,13 +13,13 @@ export default function (req: any, resp: any) {
     const mailuser: string|undefined = process.env.MAIL_USER
     const mailpassword: string|undefined = process.env.MAIL_PASSWORD
     const transport = nodemailer.createTransport({
-        host: "smtp.web.de",
+        host: mailserver,
         port: 587,
         secure: false,
         requireTLS: true,
         auth: {
-            user: "fabian_strunz",
-            pass: "easypass"
+            user: mailuser,
+            pass: mailpassword
         }
     })
     const mail: MailOptions = {

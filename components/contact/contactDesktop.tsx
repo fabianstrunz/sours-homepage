@@ -3,7 +3,6 @@ import { Box, Button, Container, TextField, Typography } from '@mui/material'
 import React, { useState } from 'react'
 import validator from 'validator'
 import axios from 'axios'
-import { sendRenderResult } from 'next/dist/server/send-payload'
 
 const ContactDesktop = (): JSX.Element => {
     const [email, setEmail] = useState<string>("")
