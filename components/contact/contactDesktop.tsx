@@ -8,19 +8,12 @@ const ContactDesktop = (): JSX.Element => {
     const [email, setEmail] = useState<string>("")
     const [subject, setSubject] = useState<string>("")
     const [text, setText] = useState<string>("")
-    const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setEmail(event.target.value);
-    }
-    const handleSubjectChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setSubject(event.target.value);
-    }
-    const handleTextChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setText(event.target.value);
-    }
+    const [name, setName] = useState<string>("")
 
     const sendEmail = () => {
         axios.post("/api/contact", {
             email: email,
+            name: name,
             subject: subject,
             text: text
         }).then(value => {
@@ -40,12 +33,25 @@ const ContactDesktop = (): JSX.Element => {
                         <TextField
                             variant="outlined"
                             required
+                            id="name"
+                            label="Dein Name"
+                            margin="normal"
+                            color="secondary"
+                            sx={{ width: "38%"}}
+                            onChange={event => setName(event.target.value)}
+                            error={validator.isEmpty(name.trim())}
+                        />
+                    </Box>
+                    <Box>
+                        <TextField
+                            variant="outlined"
+                            required
                             id="email"
                             label="Deine Email Adresse"
                             margin="normal"
                             color="secondary"
                             sx={{ width: "38%"}}
-                            onChange={handleEmailChange}
+                            onChange={event => setEmail(event.target.value)}
                             error={!validator.isEmail(email)}
                         />
                     </Box>
@@ -58,7 +64,7 @@ const ContactDesktop = (): JSX.Element => {
                             margin="normal"
                             color="secondary"
                             sx={{ width: "38%"}}
-                            onChange={handleSubjectChange}
+                            onChange={event => setSubject(event.target.value)}
                             error={validator.isEmpty(subject.trim())}
                         />
                     </Box>
@@ -73,7 +79,7 @@ const ContactDesktop = (): JSX.Element => {
                             margin="normal"
                             color="secondary"
                             rows={10}
-                            onChange={handleTextChange}
+                            onChange={event => setText(event.target.value)}
                             error={validator.isEmpty(text.trim())}
                         />
                     </Box>

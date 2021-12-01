@@ -1,27 +1,29 @@
 import nodemailer from 'nodemailer'
 import { MailOptions } from 'nodemailer/lib/sendmail-transport'
+import { NextApiRequest, NextApiResponse } from 'next'
+import SMTPTransport from 'nodemailer/lib/smtp-transport'
 
 interface RBody {
     email: string,
     subject: string,
-    text: string
+    text: string,
+    name: string
 }
 
-export default function (req: any, resp: any) {
+export default function (req: NextApiRequest, resp: NextApiResponse) {
     const rbody: RBody = req.body
     const mailserver: string|undefined = process.env.MAIL_SERVER
-    const mailuser: string|undefined = process.env.MAIL_USER
-    const mailpassword: string|undefined = process.env.MAIL_PASSWORD
+
     const transport = nodemailer.createTransport({
-        host: mailserver,
+        host: process.env.MAIL_SERVER,
         port: 587,
         secure: false,
         requireTLS: true,
         auth: {
-            user: mailuser,
-            pass: mailpassword
+            user: process.env.MAIL_USER,
+            pass: process.env.MAIL_PASSWORD
         }
-    })
+    } as SMTPTransport.Options)
     const mail: MailOptions = {
         from: "fabian_strunz@web.de",
         to: rbody.email,

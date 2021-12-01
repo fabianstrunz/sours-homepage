@@ -1,6 +1,6 @@
 import HeaderMobile from '../header/headerMobile'
 import { LinkLocation } from '../header/headerEnums'
-import { Box, Button, Container, TextField, Typography } from '@mui/material'
+import { Button, Container, TextField, Typography } from '@mui/material'
 import React, { useState } from 'react'
 import validator from 'validator'
 import axios from 'axios'
@@ -9,19 +9,12 @@ const ContactMobile = (): JSX.Element => {
     const [email, setEmail] = useState<string>("")
     const [subject, setSubject] = useState<string>("")
     const [text, setText] = useState<string>("")
-    const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setEmail(event.target.value);
-    }
-    const handleSubjectChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setSubject(event.target.value);
-    }
-    const handleTextChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setText(event.target.value);
-    }
+    const [name, setName] = useState<string>("")
 
     const sendEmail = () => {
         axios.post("/api/contact", {
             email: email,
+            name: name,
             subject: subject,
             text: text
         }).then(value => {
@@ -42,11 +35,22 @@ const ContactMobile = (): JSX.Element => {
                     <TextField
                         variant="outlined"
                         required
+                        id="name"
+                        label="Dein Name"
+                        margin="normal"
+                        color="secondary"
+                        onChange={event => setName(event.target.value)}
+                        error={validator.isEmpty(name.trim())}
+                        fullWidth
+                    />
+                    <TextField
+                        variant="outlined"
+                        required
                         id="email"
                         label="Deine Email Adresse"
                         margin="normal"
                         color="secondary"
-                        onChange={handleEmailChange}
+                        onChange={event => setEmail(event.target.value)}
                         error={!validator.isEmail(email)}
                         fullWidth
                     />
@@ -57,7 +61,7 @@ const ContactMobile = (): JSX.Element => {
                         label="Betreff"
                         margin="normal"
                         color="secondary"
-                        onChange={handleSubjectChange}
+                        onChange={event => setSubject(event.target.value)}
                         error={validator.isEmpty(subject.trim())}
                         fullWidth
                     />
@@ -71,7 +75,7 @@ const ContactMobile = (): JSX.Element => {
                         margin="normal"
                         color="secondary"
                         rows={10}
-                        onChange={handleTextChange}
+                        onChange={event => setText(event.target.value)}
                         error={validator.isEmpty(text.trim())}
                     />
                     <Button

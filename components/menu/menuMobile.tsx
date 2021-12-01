@@ -8,7 +8,7 @@ const MenuMobile = (): JSX.Element => {
             <HeaderMobile location={LinkLocation.Menu}/>
             <main>
                 <Container>
-                    <Typography component="h2" variant="h2">Getränke</Typography>
+                    <Typography component="h3" variant="h3" color="secondary">Getränke</Typography>
                     <TableContainer>
                         <Table aria-label="simple table">
                             <TableHead>
@@ -33,7 +33,7 @@ const MenuMobile = (): JSX.Element => {
                             </TableBody>
                         </Table>
                     </TableContainer>
-                    <Typography component="h2" variant="h2">Cubanos</Typography>
+                    <Typography component="h3" variant="h3" color="secondary">Cubanos</Typography>
                     <TableContainer>
                         <Table aria-label="simple table">
                             <TableHead>
@@ -58,7 +58,7 @@ const MenuMobile = (): JSX.Element => {
                             </TableBody>
                         </Table>
                     </TableContainer>
-                    <Typography component="h2" variant="h2">Wein</Typography>
+                    <Typography component="h3" variant="h3" color="secondary">Wein</Typography>
                     <TableContainer>
                         <Table aria-label="simple table">
                             <TableHead>

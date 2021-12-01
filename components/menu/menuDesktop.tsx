@@ -16,7 +16,7 @@ const MenuDesktop = (): JSX.Element => {
             <HeaderDesktop />
             <main>
                 <Container sx={{ marginTop: "64px" }}>
-                    <Typography component="h3" variant="h3">Getränke</Typography>
+                    <Typography component="h3" variant="h3" color="secondary">Getränke</Typography>
                     <TableContainer>
                         <Table aria-label="simple table">
                             <TableHead>
@@ -41,7 +41,7 @@ const MenuDesktop = (): JSX.Element => {
                             </TableBody>
                         </Table>
                     </TableContainer>
-                    <Typography component="h3" variant="h3">Cubanos</Typography>
+                    <Typography component="h3" variant="h3" color="secondary">Cubanos</Typography>
                     <TableContainer>
                         <Table aria-label="simple table">
                             <TableHead>
@@ -66,7 +66,7 @@ const MenuDesktop = (): JSX.Element => {
                             </TableBody>
                         </Table>
                     </TableContainer>
-                    <Typography component="h3" variant="h3">Wein</Typography>
+                    <Typography component="h3" variant="h3" color="secondary">Wein</Typography>
                     <TableContainer>
                         <Table aria-label="simple table">
                             <TableHead>
