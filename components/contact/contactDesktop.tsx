@@ -87,8 +87,11 @@ const ContactDesktop = (): JSX.Element => {
                         <Button
                             color="secondary"
                             variant="outlined"
+                            size="large"
                             onClick={sendEmail}
-                        >Nachricht abschicken</Button>
+                        >
+                            Nachricht abschicken
+                        </Button>
                     </Box>
                 </Container>
             </main>

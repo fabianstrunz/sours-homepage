@@ -12,7 +12,6 @@ interface RBody {
 
 export default function (req: NextApiRequest, resp: NextApiResponse) {
     const rbody: RBody = req.body
-    const mailserver: string|undefined = process.env.MAIL_SERVER
 
     const transport = nodemailer.createTransport({
         host: process.env.MAIL_SERVER,

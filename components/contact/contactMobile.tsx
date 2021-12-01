@@ -81,8 +81,11 @@ const ContactMobile = (): JSX.Element => {
                     <Button
                         color="secondary"
                         variant="outlined"
+                        size="large"
                         onClick={sendEmail}
-                    >Nachricht abschicken</Button>
+                    >
+                        Nachricht abschicken
+                    </Button>
                 </Container>
             </main>
             <footer></footer>
