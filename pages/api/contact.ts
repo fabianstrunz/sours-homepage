@@ -10,7 +10,7 @@ interface RBody {
     name: string
 }
 
-export default function (req: NextApiRequest, resp: NextApiResponse) {
+export default (req: NextApiRequest, res: NextApiResponse) => {
     const rbody: RBody = req.body
 
     const transport = nodemailer.createTransport({
@@ -38,5 +38,5 @@ export default function (req: NextApiRequest, resp: NextApiResponse) {
         }
     }))
 
-    resp.status(200).end()
+    res.status(200).end()
 }

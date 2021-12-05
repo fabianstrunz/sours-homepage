@@ -2,6 +2,7 @@ import HeaderDesktop from '../header/headerDesktop'
 import { Box, Button, Container, TextField, Typography } from '@mui/material'
 import React, { useState } from 'react'
 import validator from 'validator'
+import FooterDesktop from '../footer/footerDesktop'
 
 const ReservationDesktop = (): JSX.Element => {
     const [email, setEmail] = useState<string>("")
@@ -62,7 +63,7 @@ const ReservationDesktop = (): JSX.Element => {
                     </Button>
                 </Container>
             </main>
-            <footer></footer>
+            <FooterDesktop />
         </>
     )
 }

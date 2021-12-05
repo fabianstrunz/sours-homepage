@@ -9,6 +9,7 @@ import {
     TableRow,
     Typography
 } from '@mui/material'
+import FooterDesktop from '../footer/footerDesktop'
 
 const MenuDesktop = (): JSX.Element => {
     return (
@@ -93,7 +94,7 @@ const MenuDesktop = (): JSX.Element => {
                     </TableContainer>
                 </Container>
             </main>
-            <footer></footer>
+            <FooterDesktop />
         </>
     )
 }

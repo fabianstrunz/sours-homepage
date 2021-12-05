@@ -3,6 +3,7 @@ import { Box, Button, Container, TextField, Typography } from '@mui/material'
 import React, { useState } from 'react'
 import validator from 'validator'
 import axios from 'axios'
+import FooterDesktop from '../footer/footerDesktop'
 
 const ContactDesktop = (): JSX.Element => {
     const [email, setEmail] = useState<string>("")
@@ -95,7 +96,7 @@ const ContactDesktop = (): JSX.Element => {
                     </Box>
                 </Container>
             </main>
-            <footer></footer>
+            <FooterDesktop />
         </>
     )
 }

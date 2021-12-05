@@ -2,6 +2,7 @@ import HeaderDesktop from '../header/headerDesktop'
 import { Container, Typography } from '@mui/material'
 import React from 'react'
 import NewsArticle from './article/newsArticle'
+import FooterDesktop from '../footer/footerDesktop'
 
 const NewsDesktop = (): JSX.Element => {
     return (
@@ -18,7 +19,7 @@ const NewsDesktop = (): JSX.Element => {
                     <NewsArticle />
                 </Container>
             </main>
-            <footer></footer>
+            <FooterDesktop />
         </>
     )
 }
