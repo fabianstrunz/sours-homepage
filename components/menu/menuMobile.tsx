@@ -1,6 +1,8 @@
 import HeaderMobile from '../header/headerMobile'
 import { LinkLocation } from '../header/headerEnums'
 import { Container, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material'
+import FooterMobile from '../footer/footerMobile'
+import React from 'react'
 
 const MenuMobile = (): JSX.Element => {
     return (
@@ -85,7 +87,7 @@ const MenuMobile = (): JSX.Element => {
                     </TableContainer>
                 </Container>
             </main>
-            <footer></footer>
+            <FooterMobile />
         </>
     )
 }

@@ -3,6 +3,7 @@ import { LinkLocation } from '../header/headerEnums'
 import { Container, Typography } from '@mui/material'
 import NewsArticle from './article/newsArticle'
 import React from 'react'
+import FooterMobile from '../footer/footerMobile'
 
 const NewsMobile = (): JSX.Element => {
     return (
@@ -19,7 +20,7 @@ const NewsMobile = (): JSX.Element => {
                     <NewsArticle />
                 </Container>
             </main>
-            <footer></footer>
+            <FooterMobile />
         </>
     )
 }

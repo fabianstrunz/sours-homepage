@@ -4,6 +4,7 @@ import { Container, Paper, Typography } from '@mui/material'
 import Image from 'next/image'
 import hamburger from '../../public/hamburger-gb95ba7e1f_640.jpg'
 import React from 'react'
+import FooterMobile from '../footer/footerMobile'
 
 const IndexMobile = (): JSX.Element => {
     return (
@@ -20,7 +21,7 @@ const IndexMobile = (): JSX.Element => {
                     </Paper>
                 </Container>
             </main>
-            <footer></footer>
+            <FooterMobile />
         </>
     )
 }

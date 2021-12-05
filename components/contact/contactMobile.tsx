@@ -4,6 +4,7 @@ import { Button, Container, TextField, Typography } from '@mui/material'
 import React, { useState } from 'react'
 import validator from 'validator'
 import axios from 'axios'
+import FooterMobile from '../footer/footerMobile'
 
 const ContactMobile = (): JSX.Element => {
     const [email, setEmail] = useState<string>("")
@@ -88,7 +89,7 @@ const ContactMobile = (): JSX.Element => {
                     </Button>
                 </Container>
             </main>
-            <footer></footer>
+            <FooterMobile />
         </>
     )
 }

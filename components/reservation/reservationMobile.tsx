@@ -3,6 +3,7 @@ import { LinkLocation } from '../header/headerEnums'
 import { Button, Container, TextField, Typography } from '@mui/material'
 import React, { useState } from 'react'
 import validator from 'validator'
+import FooterMobile from '../footer/footerMobile'
 
 const ReservationMobile = (): JSX.Element => {
     const [email, setEmail] = useState<string>("")
@@ -57,7 +58,7 @@ const ReservationMobile = (): JSX.Element => {
                     </Button>
                 </Container>
             </main>
-            <footer></footer>
+            <FooterMobile />
         </>
     )
 }
