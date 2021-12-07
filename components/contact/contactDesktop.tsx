@@ -32,45 +32,46 @@ const ContactDesktop = (): JSX.Element => {
                     <Typography component="h3" variant="h3" color="secondary">Kontakt</Typography>
                     <Box>
                         <TextField
+                            sx={{ input: { color: "yellow" }, width: "38%"}}
                             variant="outlined"
                             required
                             id="name"
                             label="Dein Name"
                             margin="normal"
                             color="secondary"
-                            sx={{ width: "38%"}}
                             onChange={event => setName(event.target.value)}
                             error={validator.isEmpty(name.trim())}
                         />
                     </Box>
                     <Box>
                         <TextField
+                            sx={{ input: { color: "yellow" }, width: "38%"}}
                             variant="outlined"
                             required
                             id="email"
                             label="Deine Email Adresse"
                             margin="normal"
                             color="secondary"
-                            sx={{ width: "38%"}}
                             onChange={event => setEmail(event.target.value)}
                             error={!validator.isEmail(email)}
                         />
                     </Box>
                     <Box>
                         <TextField
+                            sx={{ input: { color: "yellow" }, width: "38%"}}
                             variant="outlined"
                             required
                             id="subject"
                             label="Betreff"
                             margin="normal"
                             color="secondary"
-                            sx={{ width: "38%"}}
                             onChange={event => setSubject(event.target.value)}
                             error={validator.isEmpty(subject.trim())}
                         />
                     </Box>
                     <Box>
                         <TextField
+                            sx={{ textarea: { color: "yellow" }}}
                             fullWidth
                             variant="outlined"
                             required

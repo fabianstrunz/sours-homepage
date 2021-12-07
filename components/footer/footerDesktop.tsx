@@ -1,4 +1,4 @@
-import { Button, Container, Grid, InputAdornment, Link, TextField, Typography } from '@mui/material'
+import { Alert, Button, Container, Grid, InputAdornment, Link, Snackbar, TextField, Typography } from '@mui/material'
 import React, { useState } from 'react'
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
@@ -8,19 +8,51 @@ import axios from 'axios'
 import CopyrightIcon from '@mui/icons-material/Copyright';
 
 const FooterDesktop = (): JSX.Element => {
-    const [newsletter, setNewsletter] = useState<string>("")
+    const [newsletterEmail, setNewsletterEmail] = useState<string>("")
+    const [isNewsletterSuccessSnackbarOpen, setNewsletterSuccessSnackbarOpen] = useState<boolean>(false)
+    const [isNewsletterErrorSnackbarOpen, setNewsletterErrorSnackbarOpen] = useState<boolean>(false)
 
     const sendNewsletterSubscription = () => {
         axios.post("/api/newsletter", {
             subscribe: true,
-            email: newsletter
+            email: newsletterEmail
         }).then(response => {
             console.log(response)
+            setNewsletterSuccessSnackbarOpen(true)
+        }).catch(reason => {
+            console.log(reason)
+            setNewsletterErrorSnackbarOpen(true)
         })
     }
 
     return (
         <footer style={{ backgroundColor: "black" }}>
+            <Snackbar
+                open={isNewsletterSuccessSnackbarOpen}
+                onClose={() => setNewsletterSuccessSnackbarOpen(false)}
+                autoHideDuration={6000}
+            >
+                <Alert
+                    severity="success"
+                    sx={{ width: '100%' }}
+                    onClose={() => setNewsletterSuccessSnackbarOpen(false)}
+                >
+                    Erfolgreich zum Newsletter angemeldet
+                </Alert>
+            </Snackbar>
+            <Snackbar
+                open={isNewsletterErrorSnackbarOpen}
+                onClose={() => setNewsletterErrorSnackbarOpen(false)}
+                autoHideDuration={6000}
+            >
+                <Alert
+                    severity="error"
+                    sx={{ width: '100%' }}
+                    onClose={() => setNewsletterErrorSnackbarOpen(false)}
+                >
+                    Fehler beim Anmelden zum Newsletter. Versuche es später erneut!
+                </Alert>
+            </Snackbar>
             <Container sx={{ marginTop: "2em", padding: "1em" }}>
                 <Grid container>
                     <Grid item xs={4}>
@@ -57,13 +89,15 @@ const FooterDesktop = (): JSX.Element => {
                     <Grid item xs={4}>
                         <Typography component="h4" variant="h4" color="secondary">Newsletter</Typography>
                         <TextField
+                            sx={{ input: { color: "yellow" }}}
+                            label="E-Mail"
                             fullWidth
                             variant="outlined"
                             color="secondary"
                             id="newsletter-mail"
                             margin="normal"
-                            error={!validator.isEmail(newsletter)}
-                            onChange={event => setNewsletter(event.target.value)}
+                            error={!validator.isEmail(newsletterEmail)}
+                            onChange={event => setNewsletterEmail(event.target.value)}
                             InputProps={{
                                 startAdornment: (
                                     <InputAdornment position="start">

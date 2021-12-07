@@ -4,11 +4,15 @@ import { Button, Container, TextField, Typography } from '@mui/material'
 import React, { useState } from 'react'
 import validator from 'validator'
 import FooterMobile from '../footer/footerMobile'
+import { LocalizationProvider, MobileDateTimePicker } from '@mui/lab'
+import AdapterDateFns from '@mui/lab/AdapterDateFns'
+import { de } from 'date-fns/locale'
 
 const ReservationMobile = (): JSX.Element => {
     const [email, setEmail] = useState<string>("")
     const [name, setName] = useState<string>("")
     const [count, setCount] = useState<string>("")
+    const [date, setDate] = useState<Date | null>()
 
     return (
         <>
@@ -17,6 +21,7 @@ const ReservationMobile = (): JSX.Element => {
                 <Container>
                     <Typography component="h3" variant="h3" color="secondary">Tisch reservieren</Typography>
                     <TextField
+                        sx={{ input: { color: "yellow" }}}
                         variant="outlined"
                         required
                         id="name"
@@ -28,6 +33,7 @@ const ReservationMobile = (): JSX.Element => {
                         fullWidth
                     />
                     <TextField
+                        sx={{ input: { color: "yellow" }}}
                         variant="outlined"
                         required
                         id="email"
@@ -39,6 +45,7 @@ const ReservationMobile = (): JSX.Element => {
                         fullWidth
                     />
                     <TextField
+                        sx={{ input: { color: "yellow" }}}
                         variant="outlined"
                         required
                         id="count"
@@ -49,6 +56,18 @@ const ReservationMobile = (): JSX.Element => {
                         error={!validator.isDecimal(count.trim())}
                         fullWidth
                     />
+                    <LocalizationProvider
+                        dateAdapter={AdapterDateFns}
+                        locale={de}
+                    >
+                        <MobileDateTimePicker
+                            ampm={false}
+                            onChange={newDate => setDate(newDate)}
+                            value={date}
+                            renderInput={params => <TextField {...params} sx={{input: {color: "yellow"}}}/>}
+                            cancelText="Abbrechen"
+                        />
+                    </LocalizationProvider>
                     <Button
                         color="secondary"
                         variant="outlined"

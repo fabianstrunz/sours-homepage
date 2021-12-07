@@ -34,6 +34,7 @@ const ContactMobile = (): JSX.Element => {
                 <Container>
                     <Typography component="h3" variant="h3" color="secondary">Kontakt</Typography>
                     <TextField
+                        sx={{ input: { color: "yellow" }}}
                         variant="outlined"
                         required
                         id="name"
@@ -45,6 +46,7 @@ const ContactMobile = (): JSX.Element => {
                         fullWidth
                     />
                     <TextField
+                        sx={{ input: { color: "yellow" }}}
                         variant="outlined"
                         required
                         id="email"
@@ -56,6 +58,7 @@ const ContactMobile = (): JSX.Element => {
                         fullWidth
                     />
                     <TextField
+                        sx={{ input: { color: "yellow" }}}
                         variant="outlined"
                         required
                         id="subject"
@@ -67,6 +70,7 @@ const ContactMobile = (): JSX.Element => {
                         fullWidth
                     />
                     <TextField
+                        sx={{ textarea: { color: "yellow" }}}
                         fullWidth
                         variant="outlined"
                         required

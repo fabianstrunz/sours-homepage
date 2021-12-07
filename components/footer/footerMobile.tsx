@@ -1,4 +1,4 @@
-import { Button, Container, InputAdornment, Link, TextField, Typography } from '@mui/material'
+import { Alert, Button, Container, InputAdornment, Link, Snackbar, TextField, Typography } from '@mui/material'
 import React, { useState } from 'react'
 import FacebookIcon from '@mui/icons-material/Facebook'
 import InstagramIcon from '@mui/icons-material/Instagram'
@@ -8,6 +8,8 @@ import axios from 'axios'
 
 const FooterMobile = () => {
     const [newsletter, setNewsletter] = useState<string>("")
+    const [isNewsletterSuccessSnackbarOpen, setNewsletterSuccessSnackbarOpen] = useState<boolean>(false)
+    const [isNewsletterErrorSnackbarOpen, setNewsletterErrorSnackbarOpen] = useState<boolean>(false)
 
     const sendNewsletterSubscription = () => {
         axios.post("/api/newsletter", {
@@ -15,11 +17,41 @@ const FooterMobile = () => {
             email: newsletter
         }).then(response => {
             console.log(response)
+            setNewsletterSuccessSnackbarOpen(true)
+        }).catch(reason => {
+            console.log(reason)
+            setNewsletterErrorSnackbarOpen(true)
         })
     }
 
     return (
         <footer style={{ backgroundColor: "black" }}>
+            <Snackbar
+                open={isNewsletterSuccessSnackbarOpen}
+                onClose={() => setNewsletterSuccessSnackbarOpen(false)}
+                autoHideDuration={6000}
+            >
+                <Alert
+                    severity="success"
+                    sx={{ width: '100%' }}
+                    onClose={() => setNewsletterSuccessSnackbarOpen(false)}
+                >
+                    Erfolgreich zum Newsletter angemeldet
+                </Alert>
+            </Snackbar>
+            <Snackbar
+                open={isNewsletterErrorSnackbarOpen}
+                onClose={() => setNewsletterErrorSnackbarOpen(false)}
+                autoHideDuration={6000}
+            >
+                <Alert
+                    severity="error"
+                    sx={{ width: '100%' }}
+                    onClose={() => setNewsletterErrorSnackbarOpen(false)}
+                >
+                    Fehler beim Anmelden zum Newsletter. Versuche es später erneut!
+                </Alert>
+            </Snackbar>
             <Container sx={{ marginTop: "2em", padding: "1em" }}>
                 <Typography component="h4" variant="h4" color="secondary" sx={{ textAlign: "center" }}>Öffnungszeiten</Typography>
                 <Typography component="p" color="secondary" sx={{ textAlign: "center" }}>Di - Do 7:30 - 23:00 Uhr</Typography>
@@ -52,6 +84,7 @@ const FooterMobile = () => {
 
                 <Typography component="h4" variant="h4" color="secondary" sx={{ textAlign: "center", marginTop: "1em" }}>Newsletter</Typography>
                 <TextField
+                    sx={{ input: { color: "yellow" }}}
                     fullWidth
                     variant="outlined"
                     color="secondary"
