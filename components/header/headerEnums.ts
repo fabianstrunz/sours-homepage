@@ -3,5 +3,6 @@ export enum LinkLocation {
     News,
     Reservation,
     Menu,
-    Contact
+    Contact,
+    Privacy
 }

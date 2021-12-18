@@ -1,10 +1,11 @@
-import { Alert, Button, Container, InputAdornment, Link, Snackbar, TextField, Typography } from '@mui/material'
+import { Alert, Button, Container, InputAdornment, Link as MUILink, Snackbar, TextField, Typography } from '@mui/material'
 import React, { useState } from 'react'
 import FacebookIcon from '@mui/icons-material/Facebook'
 import InstagramIcon from '@mui/icons-material/Instagram'
 import validator from 'validator'
 import EmailIcon from '@mui/icons-material/Email'
 import axios from 'axios'
+import Link from 'next/link'
 
 const FooterMobile = () => {
     const [newsletter, setNewsletter] = useState<string>("")
@@ -61,25 +62,25 @@ const FooterMobile = () => {
                 <Typography component="h4" variant="h4" color="secondary" sx={{ textAlign: "center", marginTop: "1em" }}>Social Media</Typography>
                 <div style={{ textAlign: "center" }}>
                     <FacebookIcon fontSize="large" color="secondary"/>
-                    <Link
+                    <MUILink
                         href="https://facebook.com/sours.stadtbar/"
                         underline="hover"
                         rel="noopener"
                         color="secondary"
                     >
                         Facebook
-                    </Link>
+                    </MUILink>
                 </div>
                 <div style={{ textAlign: "center" }}>
                     <InstagramIcon fontSize="large" color="secondary"/>
-                    <Link
+                    <MUILink
                         href="https://www.instagram.com/sours_stadtbar/?hl=de"
                         underline="hover"
                         rel="noopener"
                         color="secondary"
                     >
                         Instagramm
-                    </Link>
+                    </MUILink>
                 </div>
 
                 <Typography component="h4" variant="h4" color="secondary" sx={{ textAlign: "center", marginTop: "1em" }}>Newsletter</Typography>
@@ -112,6 +113,11 @@ const FooterMobile = () => {
                     >
                         Anmelden
                     </Button>
+                </div>
+                <div>
+                    <Link href="/privacy">
+                        <a style={{textDecoration: "none", color: "yellow" }}>Datenschutz</a>
+                    </Link>
                 </div>
             </Container>
         </footer>

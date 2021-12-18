@@ -75,3 +75,18 @@ export const ContactLink = (): JSX.Element => {
         </Link>
     )
 }
+
+export const PrivacyLink = (): JSX.Element => {
+    return (
+        <Link href="/privacy" passHref>
+            <Typography
+                variant="h6"
+                component="a"
+                color="secondary"
+                sx={{ textDecoration: "none", "&:hover": { textDecoration: "underline" } }}
+            >
+                Datenschutz
+            </Typography>
+        </Link>
+    )
+}

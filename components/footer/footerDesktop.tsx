@@ -1,11 +1,12 @@
-import { Alert, Button, Container, Grid, InputAdornment, Link, Snackbar, TextField, Typography } from '@mui/material'
+import { Alert, Button, Container, Grid, InputAdornment, Link as MUILink, Snackbar, TextField, Typography } from '@mui/material'
 import React, { useState } from 'react'
-import FacebookIcon from '@mui/icons-material/Facebook';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import EmailIcon from '@mui/icons-material/Email';
+import FacebookIcon from '@mui/icons-material/Facebook'
+import InstagramIcon from '@mui/icons-material/Instagram'
+import EmailIcon from '@mui/icons-material/Email'
 import validator from 'validator'
 import axios from 'axios'
-import CopyrightIcon from '@mui/icons-material/Copyright';
+import CopyrightIcon from '@mui/icons-material/Copyright'
+import Link from 'next/link'
 
 const FooterDesktop = (): JSX.Element => {
     const [newsletterEmail, setNewsletterEmail] = useState<string>("")
@@ -65,25 +66,25 @@ const FooterDesktop = (): JSX.Element => {
                         <Typography component="h4" variant="h4" color="secondary">Social Media</Typography>
                         <div>
                             <FacebookIcon fontSize="large" color="secondary"/>
-                            <Link
+                            <MUILink
                                 href="https://facebook.com/sours.stadtbar/"
                                 underline="hover"
                                 rel="noopener"
                                 color="secondary"
                             >
                                 Facebook
-                            </Link>
+                            </MUILink>
                         </div>
                         <div>
                             <InstagramIcon fontSize="large" color="secondary"/>
-                            <Link
+                            <MUILink
                                 href="https://www.instagram.com/sours_stadtbar/?hl=de"
                                 underline="hover"
                                 rel="noopener"
                                 color="secondary"
                             >
                                 Instagramm
-                            </Link>
+                            </MUILink>
                         </div>
                     </Grid>
                     <Grid item xs={4}>
@@ -125,6 +126,9 @@ const FooterDesktop = (): JSX.Element => {
                     <CopyrightIcon />
                     {new Date().getFullYear()} by F.S.
                 </Typography>
+                <Link href="/privacy">
+                    <a style={{textDecoration: "none", color: "yellow" }}>Datenschutz</a>
+                </Link>
             </Container>
         </footer>
     )

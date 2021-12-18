@@ -9,7 +9,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import React, { useState } from 'react'
 import Link from 'next/link'
 import { LinkLocation } from './headerEnums'
-import { ContactLink, MenuLink, NewsLink, ReservationLink } from '../links/links'
+import { ContactLink, MenuLink, NewsLink, PrivacyLink, ReservationLink } from '../links/links'
 import NavigateNextIcon from '@mui/icons-material/NavigateNext'
 
 interface HeaderMobileProps {
@@ -27,7 +27,7 @@ const HeaderMobile = (props: HeaderMobileProps): JSX.Element => {
         setDrawerOpen(false)
     }
 
-    const renderBreadcrumb = (location: LinkLocation): JSX.Element | null => {
+    const renderBreadcrumb = (location: LinkLocation): JSX.Element => {
         switch (location) {
             case LinkLocation.Contact:
                 return <ContactLink />
@@ -37,8 +37,10 @@ const HeaderMobile = (props: HeaderMobileProps): JSX.Element => {
                 return <NewsLink />
             case LinkLocation.Reservation:
                 return <ReservationLink />
+            case LinkLocation.Privacy:
+                return <PrivacyLink />
             default:
-                return null
+                return <></>
         }
     }
 
