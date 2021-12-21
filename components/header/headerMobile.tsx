@@ -27,7 +27,7 @@ const HeaderMobile = (props: HeaderMobileProps): JSX.Element => {
         setDrawerOpen(false)
     }
 
-    const renderBreadcrumb = (location: LinkLocation): JSX.Element => {
+    const renderBreadcrumb = (location: LinkLocation): JSX.Element | null => {
         switch (location) {
             case LinkLocation.Contact:
                 return <ContactLink />
@@ -40,7 +40,7 @@ const HeaderMobile = (props: HeaderMobileProps): JSX.Element => {
             case LinkLocation.Privacy:
                 return <PrivacyLink />
             default:
-                return <></>
+                return null
         }
     }
 
